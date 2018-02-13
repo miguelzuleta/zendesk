@@ -10,13 +10,11 @@ import uglify       from 'gulp-uglify'
 import scssLint     from 'gulp-scss-lint'
 import autoprefixer from 'gulp-autoprefixer'
 import eslint       from 'gulp-eslint'
-import include      from "gulp-include"
 import rename       from "gulp-rename"
 import sourcemaps   from 'gulp-sourcemaps'
 
 import jsStylish    from 'jshint-stylish'
 import browserify   from 'browserify'
-import reactify     from 'reactify'
 import watchify     from 'watchify'
 import buffer       from 'vinyl-buffer'
 import source       from 'vinyl-source-stream'
@@ -61,7 +59,6 @@ gulp.task('connect', () => {
 
 gulp.task('html', () => {
 	gulp.src('components/html/*.html')
-		.pipe(include())
 		.pipe(htmlmin({
 			collapseWhitespace: minifyHMTL
 		}))
@@ -112,7 +109,7 @@ gulp.task('js', () =>  {
 	browserify({
 			entries: 'components/js/main.js',
 			debug: showSourcemaps,
-			transform: [ babelify, reactify ]
+			transform: [ babelify ]
 		})
 		.bundle()
 		.pipe(source('components/js/main.js'))
