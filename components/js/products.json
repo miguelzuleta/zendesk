@@ -1,16 +1,16 @@
 {
     "subscription_one": {
-        "product_options": {
+        "product_specs": {
             "name": "Product One",
-            "option_name": "Plan",
-            "user_select": "Seats"
-        },
-        "plan_type": {
-           "_default": {
+            "label": "Plan",
+            "item": "Seats",
+            "_default": {
                 "plan": "better",
                 "name": "Better",
                 "amount": 5
-            },
+            }
+        },
+        "product_types": {
             "basic": {
                 "name": "Basic",
                 "cost": 12
@@ -30,62 +30,32 @@
         }
     },
     "subscription_two": {
-        "product_options": {
-            "name": "Product One",
-            "option_name": "Plan",
-            "user_select": "Seats"
-        },
-        "plan_type": {
-           "_default": {
+        "product_specs": {
+            "name": "Product Two",
+            "label": "Plan",
+            "item": "Seats",
+            "_default": {
                 "plan": "better",
                 "name": "Better",
-                "amount": 5
-            },
-            "basic": {
-                "name": "Basic",
-                "cost": 12
-            },
-            "good": {
-                "name": "Good",
-                "cost": 710
-            },
-            "better": {
-                "name": "Better",
-                "cost": 100
-            },
-            "best": {
-                "name": "Best",
-                "cost": 1000
+                "amount": 7
             }
-        }
-    },
-    "subscription_three": {
-        "product_options": {
-            "name": "Product One",
-            "option_name": "Plan",
-            "user_select": "Seats"
         },
-        "plan_type": {
-           "_default": {
-                "plan": "better",
-                "name": "Better",
-                "amount": 5
-            },
+        "product_types": {
             "basic": {
                 "name": "Basic",
-                "cost": 12
+                "cost": 22
             },
             "good": {
                 "name": "Good",
-                "cost": 710
+                "cost": 110
             },
             "better": {
                 "name": "Better",
-                "cost": 100
+                "cost": 600
             },
             "best": {
                 "name": "Best",
-                "cost": 1000
+                "cost": 777
             }
         }
     }

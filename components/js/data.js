@@ -1,4 +1,4 @@
-const data = {
+const Data = {
 
 	fetch(url) {
 		let fetchData = () => fetch(url)
@@ -9,7 +9,6 @@ const data = {
 	},
 
 	render(props) {
-		console.log(props)
 		let renderParent = document.querySelectorAll(props.parent)
 
 		renderParent.forEach(element => {
@@ -18,4 +17,4 @@ const data = {
 	}
 }
 
-export default data
+export default Data
