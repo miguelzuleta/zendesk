@@ -31,6 +31,7 @@ let minifyHMTL = false
 let runConnect = ['connect']
 let runWatch = []
 
+
 if (!fs.existsSync(dir)) {
 	fs.mkdirSync(dir)
 }
@@ -120,11 +121,16 @@ gulp.task('js', () =>  {
 		.pipe(connect.reload())
 })
 
+gulp.task('json', () => {
+	fs.createReadStream('components/js/products.json')
+		.pipe(fs.createWriteStream('site/products.json'));
+})
+
 gulp.task('watch', () => {
 	console.log('\n\nWatching for changes...\n\n')
 	gulp.watch('components/sass/*.scss', ['sass'])
 	gulp.watch('components/html/**/*.html', ['html'])
-	gulp.watch('components/js/*.js', ['js', 'lint'])
+	gulp.watch('components/js/*.*', ['js', 'lint', 'json'])
 })
 
-gulp.task('default', ['html', 'sass', 'js', 'lint', ...runConnect, ...runWatch])
+gulp.task('default', ['html', 'sass', 'js', 'lint', 'json', ...runConnect, ...runWatch])
