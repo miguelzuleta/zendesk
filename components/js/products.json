@@ -32,17 +32,17 @@
     "subscription_two": {
         "product_specs": {
             "name": "Product Two",
-            "label": "Plan",
-            "item": "Seats",
+            "label": "Plan0",
+            "item": "Chairs",
             "_default": {
-                "plan": "better",
-                "name": "Better",
+                "plan": "awesome",
+                "name": "Awesome",
                 "amount": 7
             }
         },
         "product_types": {
-            "basic": {
-                "name": "Basic",
+            "awesome": {
+                "name": "Awesome",
                 "cost": 22
             },
             "good": {

@@ -1,15 +1,30 @@
 import Data from './data.js'
 
+const planOptions = data => {
+    let selectOptions = ''
+    let products = data.product_types
+
+    for(let option in products) {
+        selectOptions += `<option value="${option}">
+                            ${products[option].name}
+                          </option>
+                         `
+    }
+
+    return selectOptions
+}
+
 const subscription = (parentElement, data) => {
     let { name, label, item, _default } = data.product_specs
     let defaultCost = data.product_types[_default.plan].cost
 
-    let productMarkup = `
-                        <div class="product">
+    let productMarkup = `<div class="product">
                             <h3>${name}</h3>
                             <div class="edit-plan">
                                 <div>
-                                    <select></select>
+                                    <select id="planInput">
+                                        ${planOptions(data)}
+                                    </select>
                                 </div>
                                 <div class="label">
                                     <label for="planInput">${label}</label>
@@ -29,8 +44,7 @@ const subscription = (parentElement, data) => {
                                 <div id="cost-value">$${_default.amount * defaultCost}</div>
                                 <div class="label">Price</div>
                             </div>
-                        </div>
-                        `
+                         </div>`
 
     Data.render({
         parent: parentElement,
@@ -41,7 +55,7 @@ const subscription = (parentElement, data) => {
 Data.fetch('./products.json').then(result => {
 
     for (let sub in result) {
-        subscription('body', result[sub])
+        subscription('#config-page', result[sub])
     }
 
 })
