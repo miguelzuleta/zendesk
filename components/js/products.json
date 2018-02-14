@@ -5,19 +5,19 @@
             "label": "Plan",
             "item": "Seats",
             "_default": {
-                "plan": "better",
-                "name": "Better",
+                "plan": "good",
+                "name": "Good",
                 "amount": 5
             }
         },
         "product_types": {
             "basic": {
                 "name": "Basic",
-                "cost": 12
+                "cost": 1
             },
             "good": {
                 "name": "Good",
-                "cost": 710
+                "cost": 10
             },
             "better": {
                 "name": "Better",
@@ -43,19 +43,19 @@
         "product_types": {
             "awesome": {
                 "name": "Awesome",
-                "cost": 22
+                "cost": 1
             },
             "good": {
                 "name": "Good",
-                "cost": 110
+                "cost": 10
             },
             "better": {
                 "name": "Better",
-                "cost": 600
+                "cost": 100
             },
             "best": {
                 "name": "Best",
-                "cost": 777
+                "cost": 1000
             }
         }
     }

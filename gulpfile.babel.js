@@ -130,7 +130,7 @@ gulp.task('watch', () => {
 	console.log('\n\nWatching for changes...\n\n')
 	gulp.watch('components/sass/*.scss', ['sass'])
 	gulp.watch('components/html/**/*.html', ['html'])
-	gulp.watch('components/js/*.*', ['js', 'lint', 'json'])
+	gulp.watch('components/js/*/*.*', ['js', 'lint', 'json'])
 })
 
 gulp.task('default', ['html', 'sass', 'js', 'lint', 'json', ...runConnect, ...runWatch])

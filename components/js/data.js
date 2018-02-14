@@ -12,7 +12,7 @@ const Data = {
 		let renderParent = document.querySelectorAll(props.parent)
 
 		renderParent.forEach(element => {
-		element.innerHTML += props.child
+			element.innerHTML += props.child
 		})
 	}
 }

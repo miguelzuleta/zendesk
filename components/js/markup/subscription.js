@@ -1,4 +1,4 @@
-import Data from './data.js'
+import Data from '../data.js'
 
 const planOptions = data => {
     let selectOptions = ''
@@ -14,34 +14,37 @@ const planOptions = data => {
     return selectOptions
 }
 
-const subscription = (parentElement, data) => {
+const subscription = (parentElement, data, product) => {
     let { name, label, item, _default } = data.product_specs
     let defaultCost = data.product_types[_default.plan].cost
 
-    let productMarkup = `<div class="product">
+    let productMarkup = `<div class="product" data-product="${product}">
                             <h3>${name}</h3>
                             <div class="edit-plan">
                                 <div>
-                                    <select id="planInput">
+                                    <select id="${product}-label" class="plan-input">
                                         ${planOptions(data)}
                                     </select>
                                 </div>
                                 <div class="label">
-                                    <label for="planInput">${label}</label>
+                                    <label for="${product}-label">${label}</label>
                                 </div>
                             </div>
 
-                            <div class="edit-seats">
+                            <div class="edit-item">
                                 <div>
-                                    <input id="seats-input" type="text" value=${_default.amount} />
+                                    <input id="${product}-input" class="item-input" type="text" value=${_default.amount} />
                                 </div>
                                 <div class="label">
-                                    <label for="seats-input">${item}</label>
+                                    <label for="${product}-input">${item}</label>
                                 </div>
                             </div>
 
                             <div class="price">
-                                <div id="cost-value">$${_default.amount * defaultCost}</div>
+                                <div id="cost-value">
+                                    <span class="currency">$</span>
+                                    <span class="value">${_default.amount * defaultCost}</span>
+                                </div>
                                 <div class="label">Price</div>
                             </div>
                          </div>`
@@ -52,11 +55,5 @@ const subscription = (parentElement, data) => {
     })
 }
 
-Data.fetch('./products.json').then(result => {
-
-    for (let sub in result) {
-        subscription('#config-page', result[sub])
-    }
-
-})
+export default subscription
 
